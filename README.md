@@ -197,15 +197,18 @@ select member_casual,count(member_casual),end_station_name from Q1 where member_
 ![image](https://github.com/user-attachments/assets/b037eb07-8bac-4864-8b54-e696b8983443)
 
 
-**PowerBi:**
+**PowerBI:**
 
 Casual riders visualizations for Q1:
+
 ![image](https://github.com/user-attachments/assets/ff577db0-97e9-48d9-b18f-f6bb462d8d39)
 
 Member riders visualizations for Q1:
+
 ![image](https://github.com/user-attachments/assets/15de7742-7d8b-48ef-acac-3fef09b45e80)
 
 All types of riders visualizations for Q1:
+
 ![image](https://github.com/user-attachments/assets/e3e4c03b-b5fb-483b-be00-40c07304a072)
 
 
@@ -231,13 +234,12 @@ Summary of all the insights I gathered:
 ## 6. Act ##
 My recommendations based on the insights I gathered are:
 
-1. My recommendations based on the insights I gathered are:
-2. Provide discounted membership rates for sign-ups during the popular riding times (4 pm - 8 pm)
-3. Reserve a set number of member only cycles at popular stations 
-4. Set discounts on rides under duration of 15 minutes to only members
-5. Set up promotional booths at popular stations to engage with casual riders and explain membership benefits
-6. Introduce flexible membership plans, such as weekend-only memberships
-7. Display membership ads or hold cycling events during 4-8 pm on weekends in week 4 and 5 of each month
+1. Provide discounted membership rates for sign-ups during the popular riding times (4 pm - 8 pm)
+2. Reserve a set number of member only cycles at popular stations 
+3. Set discounts on rides under duration of 15 minutes to only members
+4. Set up promotional booths at popular stations to engage with casual riders and explain membership benefits
+5. Introduce flexible membership plans, such as weekend-only memberships
+6. Display membership ads or hold cycling events during 4-8 pm on weekends in week 4 and 5 of each month
 
 
 
