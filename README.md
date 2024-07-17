@@ -153,3 +153,17 @@ SELECT DISTINCT member_casual, LENGTH(member_casual)
 FROM sample;
 
 ```
+
+**Note:**
+While doing the below analaysis,sometimes MYSQL showed me a time out error. To fix this I ran these queries:
+
+```sql
+SET GLOBAL net_read_timeout = 6000;
+SET GLOBAL net_write_timeout = 6000;
+Or on your keyboard press windows + R,type services.msc , select mysql80 and press restart
+```
+
+After executing several queries, I received an output indicating that SQL safe updates were enabled.Hence I ran this query: 
+```sql
+SET SQL_SAFE_UPDATES = 0;
+```
