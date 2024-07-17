@@ -172,9 +172,12 @@ Conducting initial data analysis to extract valuable insights:
 
 ```sql
 -- Frequency of rides throughout the week of casual vs member rides
+```
 ![image](https://github.com/user-attachments/assets/93f7a205-5c17-442f-982b-d5804ba77f74)
 
--- select member_casual,day_name,count(ride_id) from Q1 group by day_name,member_casual order by count(ride_id) desc;
+![image](https://github.com/user-attachments/assets/acdd9ea3-7e07-4a3d-8107-89dcfc49741b)
 
-```
+
+select member_casual,day_name,count(ride_id) from Q1 group by day_name,member_casual order by count(ride_id) desc;
+
 
