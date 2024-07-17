@@ -98,7 +98,8 @@ delete from Q1 where ride_id like '%+%';
 
 ## 4. Analyze ##
 
-**SQL**
+**SQL:**
+
 To do more in depth analysis I created these columns-
 
 ```sql
