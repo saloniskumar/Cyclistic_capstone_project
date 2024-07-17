@@ -64,7 +64,7 @@ CREATE TABLE IF NOT EXISTS Q1 AS (
     );
 
 ```
-## 3. Prepare ##
+## 3. Process ##
 
 ​To check how SQL handles null values, I explored the CSV file to find a ride ID with null entries. I then used SQL to query and display all columns of this ride ID, allowing me to observe how SQL is storing the null values
 
@@ -85,4 +85,71 @@ OR end_lat =""
 OR end_lng ="" ;
 
 ```
+To identify duplicate ride IDs, I compared the count of distinct ride IDs with the total count of all ride IDs. Upon discovering a discrepancy between these values, I conducted a closer inspection of the ride IDs and observed that many contained the notation "E+" within them. To determine whether this notation was a result of SQL conversion or if it existed in the original data, I examined the CSV files.
 
+```sql
+select count(*) from Q1;
+select count(distinct(ride_id)) from Q1;
+```
+ ​My investigation confirmed that some ride IDs indeed contained "E+" in their original form. Consequently, I deemed these ride IDs as invalid and removed them from the relevant tables in the database.
+```sql
+delete from Q1 where ride_id like '%+%';
+```
+
+## 3. Analyze ##
+
+To do more in depth analysis I created these columns-
+
+```sql
+-- Adding week of the month:
+ALTER TABLE sample ADD COLUMN week_no INT;
+UPDATE Q1
+SET week_no = CEIL(DAY(started_at) / 7);
+
+-- Adding day of the week-
+ALTER TABLE sample ADD COLUMN day_name VARCHAR(20);
+UPDATE sample
+SET day_name = DATE_FORMAT(started_at, '%W');
+
+-- Adding name of the month-
+ALTER TABLE sample ADD COLUMN month_name VARCHAR(20);
+UPDATE sample
+SET month_name = MONTHNAME(started_at);
+
+-- Adding duration of rides-
+ALTER TABLE Q1
+ADD COLUMN duration TIME;
+alter table Q1 drop duration;
+UPDATE Q1
+SET duration = TIMEDIFF(ended_time, started_time);
+```
+I then observed that some rides had negative duration and deleted them from my sql
+```sql
+select * from Q1 where duration like '-%';
+```
+
+While attempting to compare member and casual rides, I encountered difficulty segregating them using a WHERE query. To address this issue, I proceeded to troubleshoot the problem.
+```sql
+select * from Q1 where member_casual='casual';
+-- By doing the above, I got blanks in my output so I checked length of the member_casual column to see if any hidden character or blank space is present
+
+SELECT DISTINCT member_casual, LENGTH(member_casual) 
+FROM Q1;
+-- On checking the length I observed that the column stored 7 characters instead of 6 characters. 
+
+-- Next, I examined the column for any hidden hexadecimal values.
+
+SELECT DISTINCT member_casual, HEX(member_casual)
+FROM Q1;
+
+-- I got 0D at the end that represents \r so I removed it using replace
+
+UPDATE Q1 
+SET member_casual = REPLACE(member_casual, CHAR(13), '');
+
+-- I checked the length again to make sure it is correct now. As the output was 6 characters I can continue with my analysis
+
+SELECT DISTINCT member_casual, LENGTH(member_casual) 
+FROM sample;
+
+```
