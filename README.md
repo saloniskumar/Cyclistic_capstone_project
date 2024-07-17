@@ -53,3 +53,17 @@ SET
     end_lat = NULLIF(@start_lat, ''),
     end_lng = NULLIF(@start_lat, '');
 
+-- Then I joined the 3 tables together to create Q1
+
+CREATE TABLE IF NOT EXISTS Q1 AS ( 
+	SELECT * FROM april_2020
+	UNION ALL 
+	SELECT * FROM may_2020
+	UNION ALL 
+	SELECT * FROM june_2020
+    );
+
+
+## 3. Prepare ##
+
+​To check how SQL handles null values, I explored the CSV file to find a ride ID with null entries. I then used SQL to query and display all columns of this ride ID, allowing me to observe how SQL is storing the null values
