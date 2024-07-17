@@ -63,7 +63,26 @@ CREATE TABLE IF NOT EXISTS Q1 AS (
 	SELECT * FROM june_2020
     );
 
-
+```
 ## 3. Prepare ##
 
 ​To check how SQL handles null values, I explored the CSV file to find a ride ID with null entries. I then used SQL to query and display all columns of this ride ID, allowing me to observe how SQL is storing the null values
+
+```sql
+-- This ride id had 
+SELECT * from june_2021 where ride_id= '99FEC93BA843FB20';
+
+-- By this I concluded that SQL is storing null values as blank values. I then deleted the blank values
+
+DELETE FROM april_2021 where 
+start_station_id =""
+OR end_station_id = ""  
+or start_station_name = ""
+or end_station_name=""
+oR start_lat =""
+OR end_lat ="" 
+ OR start_lng =""
+OR end_lng ="" ;
+
+```
+
