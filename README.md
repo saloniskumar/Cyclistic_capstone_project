@@ -214,11 +214,17 @@ All types of riders visualizations for Q1:
 Summary of all the insights I gathered:
 
 **1. Weeks:** In the last two weeks of the quarter (weeks 4 and 5) see a surge in casual riders.
+
 **2. Riding Habits:** Casual riders primarily choose to ride during evenings (4pm - 8pm), suggesting a leisure-oriented usage pattern.
+
 **3. Popular Routes:** The most popular routes for casual riders are characterized by riders taking trips with the same origin and destination station hence concluding that the casual riders are using their cycles for exercise,sightseeing,or running for errands.
+
 **4. Weekends:** Casual riders, likely motivated by leisure, are most active on weekends.
+
 **5. Location:** Stations closest to the Chicago River are the most popular among casual riders.
+
 **6. Duration:** The most common trip duration for casual riders falls between 10-15 minutes.
+
 **7. Growth:** The number of casual riders is growing at a faster rate compared to membership riders.
 
 
