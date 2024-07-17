@@ -104,18 +104,18 @@ To do more in depth analysis I created these columns-
 
 ```sql
 -- Adding week of the month:
-ALTER TABLE sample ADD COLUMN week_no INT;
+ALTER TABLE Q1 ADD COLUMN week_no INT;
 UPDATE Q1
 SET week_no = CEIL(DAY(started_at) / 7);
 
 -- Adding day of the week-
-ALTER TABLE sample ADD COLUMN day_name VARCHAR(20);
-UPDATE sample
+ALTER TABLE Q1 ADD COLUMN day_name VARCHAR(20);
+UPDATE Q1
 SET day_name = DATE_FORMAT(started_at, '%W');
 
 -- Adding name of the month-
-ALTER TABLE sample ADD COLUMN month_name VARCHAR(20);
-UPDATE sample
+ALTER TABLE Q1 ADD COLUMN month_name VARCHAR(20);
+UPDATE Q1
 SET month_name = MONTHNAME(started_at);
 
 -- Adding duration of rides-
@@ -152,7 +152,7 @@ SET member_casual = REPLACE(member_casual, CHAR(13), '');
 -- I checked the length again to make sure it is correct now. As the output was 6 characters I can continue with my analysis
 
 SELECT DISTINCT member_casual, LENGTH(member_casual) 
-FROM sample;
+FROM Q1;
 
 ```
 
