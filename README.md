@@ -98,6 +98,7 @@ delete from Q1 where ride_id like '%+%';
 
 ## 4. Analyze ##
 
+**SQL**
 To do more in depth analysis I created these columns-
 
 ```sql
@@ -192,10 +193,11 @@ select member_casual,count(member_casual),start_station_name from Q1 where membe
 End station popopularity among casual riders
 
 select member_casual,count(member_casual),end_station_name from Q1 where member_casual='casual' group by end_station_name order by count(member_casual) desc;
+
 ![image](https://github.com/user-attachments/assets/b037eb07-8bac-4864-8b54-e696b8983443)
 
 
-Now doing analysis on PowerBI:
+**PowerBi:**
 
 Casual riders visualizations for Q1:
 ![image](https://github.com/user-attachments/assets/ff577db0-97e9-48d9-b18f-f6bb462d8d39)
