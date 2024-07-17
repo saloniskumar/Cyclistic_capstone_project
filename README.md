@@ -96,7 +96,7 @@ select count(distinct(ride_id)) from Q1;
 delete from Q1 where ride_id like '%+%';
 ```
 
-## 3. Analyze ##
+## 4. Analyze ##
 
 To do more in depth analysis I created these columns-
 
@@ -170,14 +170,69 @@ SET SQL_SAFE_UPDATES = 0;
 
 Conducting initial data analysis to extract valuable insights:
 
+ casual vs member riders frequency of rides throughout the week 
 ```sql
--- Frequency of rides throughout the week of casual vs member rides
+select member_casual,day_name,count(ride_id) from Q1 group by day_name,member_casual order by count(ride_id) desc;
 ```
 ![image](https://github.com/user-attachments/assets/93f7a205-5c17-442f-982b-d5804ba77f74)
 
-![image](https://github.com/user-attachments/assets/acdd9ea3-7e07-4a3d-8107-89dcfc49741b)
 
-
+Casual vs member riders month on month growth
+```sql
 select member_casual,day_name,count(ride_id) from Q1 group by day_name,member_casual order by count(ride_id) desc;
+```
+![image](https://github.com/user-attachments/assets/479006f0-15e6-4aef-affd-f433a754fc3d)
+
+Start station popopularity among casual riders
+```sql
+select member_casual,count(member_casual),start_station_name from Q1 where member_casual='casual' group by start_station_name order by count(member_casual) desc;
+```
+![image](https://github.com/user-attachments/assets/9f9ce243-777e-47fe-a467-5c45db158cb6)
+
+End station popopularity among casual riders
+
+select member_casual,count(member_casual),end_station_name from Q1 where member_casual='casual' group by end_station_name order by count(member_casual) desc;
+![image](https://github.com/user-attachments/assets/b037eb07-8bac-4864-8b54-e696b8983443)
+
+
+Now doing analysis on PowerBI:
+
+Casual riders visualizations for Q1:
+![image](https://github.com/user-attachments/assets/ff577db0-97e9-48d9-b18f-f6bb462d8d39)
+
+Member riders visualizations for Q1:
+![image](https://github.com/user-attachments/assets/15de7742-7d8b-48ef-acac-3fef09b45e80)
+
+All types of riders visualizations for Q1:
+![image](https://github.com/user-attachments/assets/e3e4c03b-b5fb-483b-be00-40c07304a072)
+
+
+## 5. Share ##
+
+Summary of all the insights I gathered:
+
+**1. Weeks:** In the last two weeks of the quarter (weeks 4 and 5) see a surge in casual riders.
+**2. Riding Habits:** Casual riders primarily choose to ride during evenings (4pm - 8pm), suggesting a leisure-oriented usage pattern.
+**3. Popular Routes:** The most popular routes for casual riders are characterized by riders taking trips with the same origin and destination station hence concluding that the casual riders are using their cycles for exercise,sightseeing,or running for errands.
+**4. Weekends:** Casual riders, likely motivated by leisure, are most active on weekends.
+**5. Location:** Stations closest to the Chicago River are the most popular among casual riders.
+**6. Duration:** The most common trip duration for casual riders falls between 10-15 minutes.
+**7. Growth:** The number of casual riders is growing at a faster rate compared to membership riders.
+
+
+## 6. Act ##
+My recommendations based on the insights I gathered are:
+
+1. My recommendations based on the insights I gathered are:
+2. Provide discounted membership rates for sign-ups during the popular riding times (4 pm - 8 pm)
+3. Reserve a set number of member only cycles at popular stations 
+4. Set discounts on rides under duration of 15 minutes to only members
+5. Set up promotional booths at popular stations to engage with casual riders and explain membership benefits
+6. Introduce flexible membership plans, such as weekend-only memberships
+7. Display membership ads or hold cycling events during 4-8 pm on weekends in week 4 and 5 of each month
+
+
+
+
 
 
