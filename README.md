@@ -2,7 +2,7 @@
 This capstone project analyzes Cyclistic, a bike-share service provider in Chicago. As a junior data analyst on the marketing analysis team, I am tasked with examining the distinct usage patterns of Cyclistic bikes between casual riders and annual members. ​The insights gathered from this analysis will inform the development of a new marketing strategy aimed at converting casual riders into annual members. Cyclistic's financial analysis reveals that annual members contribute significantly more to profitability than casual riders, leading Moreno to conclude that focusing on increasing annual memberships is crucial for the company's future growth strategy.
 To achieve our objective, I must deliver insightful visual representations that will assist the team in making more informed business decisions. These visuals will highlight the key differences between annual and casual members.
 
-For this project, I followed the 7 stages of data analysis process: Ask,Prepare,Process,Analyze,Share and Act
+For this project, I followed the 6 stages of data analysis process: Ask,Prepare,Process,Analyze,Share and Act
 
 ## 1. Ask ##
 How do annual members and casual riders use Cyclistic bikes differently?
